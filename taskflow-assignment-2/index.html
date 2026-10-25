@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Productivity & Contact Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Primary navigation">
+      <a class="brand" href="#home">TaskFlow</a>
+      <button
+        id="navToggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="navMenu" class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero container">
+      <p class="eyebrow">ApexPlanet Assignment 2</p>
+      <h1>Plan better. Focus faster. Ship more.</h1>
+      <p class="hero-copy">
+        TaskFlow is a clean productivity dashboard to manage daily tasks and demonstrate robust frontend engineering
+        with responsive layouts, accessibility, and LocalStorage persistence.
+      </p>
+    </section>
+
+    <section id="dashboard" class="dashboard container" aria-label="Task summary dashboard">
+      <h2>Dashboard Summary</h2>
+      <div class="summary-grid" role="list">
+        <article class="summary-card" role="listitem" aria-live="polite">
+          <h3>Total Tasks</h3>
+          <p id="totalCount" class="summary-value">0</p>
+        </article>
+        <article class="summary-card" role="listitem" aria-live="polite">
+          <h3>Active Tasks</h3>
+          <p id="activeCount" class="summary-value">0</p>
+        </article>
+        <article class="summary-card" role="listitem" aria-live="polite">
+          <h3>Completed Tasks</h3>
+          <p id="completedCount" class="summary-value">0</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tasks" class="tasks container" aria-label="Task management">
+      <div class="section-heading">
+        <h2>Task Manager</h2>
+        <p>Track your workflow with add, edit, complete, delete, and filter actions.</p>
+      </div>
+
+      <div class="task-controls card">
+        <label for="taskInput" class="sr-only">New task</label>
+        <div class="task-input-row">
+          <input id="taskInput" type="text" placeholder="Add a new task and press Enter or Add Task" maxlength="160" autocomplete="off">
+          <button id="addTaskBtn" type="button" class="btn btn-primary">Add Task</button>
+        </div>
+        <div class="task-filter-row" role="group" aria-label="Filter tasks">
+          <button class="filter-btn is-active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="active" type="button">Active</button>
+          <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+        </div>
+      </div>
+
+      <div class="task-list-wrap card">
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+        <div id="emptyState" class="empty-state">
+          <h3>No tasks yet</h3>
+          <p>Create your first task to start organizing your day.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container" aria-label="Contact form">
+      <div class="section-heading">
+        <h2>Contact</h2>
+        <p>Frontend demonstration form with client-side validation and accessible feedback.</p>
+      </div>
+
+      <form id="contactForm" class="contact-form card" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name" required>
+            <p id="fullNameError" class="field-error" aria-live="polite"></p>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <p id="emailError" class="field-error" aria-live="polite"></p>
+          </div>
+          <div class="form-field form-field-full">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What is your message about?" required>
+            <p id="subjectError" class="field-error" aria-live="polite"></p>
+          </div>
+          <div class="form-field form-field-full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write at least 10 characters..." required></textarea>
+            <p id="messageError" class="field-error" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button id="clearFormBtn" type="reset" class="btn btn-secondary">Clear Form</button>
+        </div>
+        <p id="formNote" class="form-note">
+          Note: This is a frontend-only demo form for Assignment 2. It validates input and shows success feedback,
+          but it does not send emails or store messages on a server.
+        </p>
+        <p id="formSuccess" class="form-success" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Created for ApexPlanet Software Pvt. Ltd. — 45-Day Web Development Internship, Assignment 2.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
